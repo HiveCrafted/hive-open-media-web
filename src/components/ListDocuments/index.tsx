@@ -1,11 +1,32 @@
 import React, { useCallback } from 'react';
+import { Button, Tooltip, Drawer, Row, Col, Input, Table } from 'antd';
+import debounce from 'lodash/debounce';
 import moment from 'moment';
-import { debounce } from 'lodash';
 
-import { Col, Drawer, Row, Button, Input, Table, Tooltip } from 'antd';
 const { Search } = Input;
 
-const columns = [
+interface Document {
+  // Define the shape of your document here
+}
+
+interface Column {
+  title: string;
+  dataIndex: string;
+  key: string;
+  render?: (text: string) => JSX.Element;
+}
+
+interface ListDocumentsProps {
+  visible: boolean;
+  onClose: () => void;
+  documents: Document[];
+  onSearch: (query: string | null | undefined) => void; // Update the type of onSearch prop
+  signedInUser: any; // Replace 'any' with the actual type
+  onSignOut: () => void;
+  isLoading: boolean;
+}
+
+const columns: Column[] = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -32,13 +53,14 @@ const columns = [
     ),
   }
 ];
-const ListDocuments = ({ visible, onClose, documents = [], onSearch, signedInUser, onSignOut, isLoading }) => {
-  const search = (value) => {
+
+const ListDocuments: React.FC<ListDocumentsProps> = ({ visible, onClose, documents = [], onSearch, signedInUser, onSignOut, isLoading }) => {
+  const search = (value: string) => {
     delayedQuery(`name contains '${value}'`);
   };
 
   const delayedQuery = useCallback(
-    debounce((q) => onSearch(q), 500),
+    debounce((q: string) => onSearch(q), 500),
     []
   );
 
@@ -53,15 +75,12 @@ const ListDocuments = ({ visible, onClose, documents = [], onSearch, signedInUse
     >
       <Row gutter={16}>
         <Col span={24}>
-          <div style={{ marginBottom: 20 }}>
+          <div style={{ marginBottom: 20 }} className="table-search">
             <p>Signed In as: {`${signedInUser?.Ad} (${signedInUser?.zu})`}</p>
             <Button type="primary" onClick={onSignOut}>
               Sign Out
             </Button>
-          </div>
-
-          <div className="table-card-actions-container">
-            <div className="table-search-container">
+            <div className="table-search-input">
               <Search
                 placeholder="Search Google Drive"
                 onChange={(e) => {
@@ -76,6 +95,7 @@ const ListDocuments = ({ visible, onClose, documents = [], onSearch, signedInUse
               />
             </div>
           </div>
+
           <Table
             className="table-striped-rows"
             columns={columns}

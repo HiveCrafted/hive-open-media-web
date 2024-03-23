@@ -1,6 +1,4 @@
-import { css } from 'styled-components';
-
-const style = () => css`
+.container {
   flex: 1;
   flex-direction: row;
   .custom-row {
@@ -33,7 +31,6 @@ const style = () => css`
         font-size: 16px;
       }
     }
-
     .icon-container {
       flex: 1;
       flex-direction: row;
@@ -42,6 +39,4 @@ const style = () => css`
       justify-content: center;
     }
   }
-`;
-
-export { style };
+}
