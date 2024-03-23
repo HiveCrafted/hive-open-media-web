@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { gapi } from 'gapi-script';
 
-const clientId = '650574562962-th60805lacl58ggmqrb6cul4kdd4vnss.apps.googleusercontent.com';
-const apiKey = 'AIzaSyAMPB4qVJUhk47KM5qQSrxUIs63yHfqkV8';
+// Client ID and API key from the Developer Console
+const CLIENT_ID = process.env.REACT_APP_GOOGLE_DRIVE_CLIENT_ID
+const API_KEY = process.env.REACT_APP_GOOGLE_DRIVE_API_KEY
 
 const scope = 'https://www.googleapis.com/auth/drive.file';
 const discoveryDocs = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
@@ -13,8 +14,8 @@ const CreateFolder = () => {
     const initializeClient = async () => {
       try {
           await gapi.client.init({
-              apiKey: apiKey,
-              clientId: clientId,
+              apiKey: API_KEY,
+              clientId: CLIENT_ID,
               discoveryDocs: discoveryDocs,
               scope: scope
           });

@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 
-const clientId = '650574562962-th60805lacl58ggmqrb6cul4kdd4vnss.apps.googleusercontent.com';
+// Client ID and API key from the Developer Console
+const CLIENT_ID = process.env.REACT_APP_GOOGLE_DRIVE_CLIENT_ID
 
 function GoogleSignIn() {
   useEffect(() => {
     window.google?.accounts.id.initialize({
-      client_id: clientId,
+      client_id: CLIENT_ID,
       callback: handleCredentialResponse
     });
 

@@ -12,7 +12,7 @@ const style = () => css`
   .source-container {
     background-color: #fff;
     display: flex;
-    flex: 1,
+    flex: 1;
     padding: 20px;
     margin-bottom: 20px;
     display: flex;
