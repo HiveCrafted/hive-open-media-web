@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import GoogleSignIn from './GoogleSignIn';
-import CreateFolder from './CreateFolder';
-const logo = require('./logo-1.png');
+import GoogleSignIn from './components/GoogleSignIn';
+import CreateFolder from './components/CreateFolder';
+import SelectSource from './components/SelectSource';
+const logo = require('./assets/images/logo-1.png');
 
 const App: React.FC = () => {
   return (
@@ -14,7 +15,8 @@ const App: React.FC = () => {
         </h1>
       </header>
       <GoogleSignIn />
-      <CreateFolder />
+      {/* <CreateFolder /> */}
+      <SelectSource />
     </div>
   );
 }
