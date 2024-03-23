@@ -1,20 +1,27 @@
 {
     "env": {
+        // don't use commonJS variables, use import over require
+        "commonjs": false,
+        "es6": true,
+        "node": true,
         "browser": true,
+        "jest": true,
         "es2021": true
     },
     "extends": [
         "standard-with-typescript",
         "plugin:react/recommended",
-        "prettier"
+        "eslint:recommended",
+        "plugin:prettier/recommended"
     ],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaVersion": "2018",
         "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
+    "plugins": ["import"],
     "rules": {
+        "no-console": "error",
+        "semi": ["error", "always"],
+        "@typescript-eslint/semi": "off"
     }
 }

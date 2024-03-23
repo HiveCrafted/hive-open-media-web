@@ -30,7 +30,7 @@ const columns = [
         </Tooltip>
       </span>
     ),
-  },
+  }
 ];
 const ListDocuments = ({ visible, onClose, documents = [], onSearch, signedInUser, onSignOut, isLoading }) => {
   const search = (value) => {
@@ -64,8 +64,12 @@ const ListDocuments = ({ visible, onClose, documents = [], onSearch, signedInUse
             <div className="table-search-container">
               <Search
                 placeholder="Search Google Drive"
-                onChange={(e) => search(e.target.value)}
-                onSearch={(value) => search(value)}
+                onChange={(e) => {
+                  search(e.target.value);
+                }}
+                onSearch={(value) => {
+                  search(value);
+                }}
                 className="table-search-input"
                 size="large"
                 enterButton

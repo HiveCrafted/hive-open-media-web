@@ -17,7 +17,7 @@ const style = () => css`
     margin-bottom: 20px;
     display: flex;
     min-height: 200px;
-    box-shadow: 0 1px 1px 0 rgba(10,22,70,.1), 0 0 1px 0 rgba(10,22,70,.06);
+    box-shadow: 0 1px 1px 0 rgba(10, 22, 70, 0.1), 0 0 1px 0 rgba(10, 22, 70, 0.06);
     border-radius: 4px;
     cursor: pointer;
     .content-container {
@@ -33,7 +33,7 @@ const style = () => css`
         font-size: 16px;
       }
     }
-  
+
     .icon-container {
       flex: 1;
       flex-direction: row;

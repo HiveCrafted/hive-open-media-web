@@ -131,7 +131,12 @@ const SelectSource = () => {
         />
         <Col span={8}>
           <Spin spinning={isLoadingGoogleDriveApi} style={{ width: '100%' }}>
-            <div onClick={() => handleClientLoad()} className="source-container">
+            <div
+              onClick={() => {
+                handleClientLoad();
+              }}
+              className="source-container"
+            >
               <div className="icon-container">
                 <div className="icon icon-success">
                   <img height="80" width="80" src={GoogleDriveImage} />
