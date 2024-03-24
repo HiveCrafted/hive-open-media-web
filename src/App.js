@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ConfigProvider, Card, Button, theme } from 'antd';
 import GoogleSignIn from './components/GoogleSignIn';
 import SelectSource from './components/SelectSource';
+import FileUpload from './components/FileUpload';
 // import CreateFolder from './components/CreateFolder';
 import './App.css';
 
@@ -28,8 +29,8 @@ function App() {
         <Card title="Hive Open Media" style={{ width: 'max-content' }}>
           <Button onClick={handleClick}>Change Theme to {isDarkMode ? 'Light' : 'Dark'}</Button>
           <GoogleSignIn />
+          <FileUpload />
           <SelectSource />
-          {/* <CreateFolder /> */}
         </Card>
       </ConfigProvider>
     </div>
