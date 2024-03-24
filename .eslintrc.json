@@ -1,27 +1,28 @@
 {
-    "env": {
-        // don't use commonJS variables, use import over require
-        "commonjs": false,
-        "es6": true,
-        "node": true,
-        "browser": true,
-        "jest": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "eslint:recommended",
-        "plugin:prettier/recommended"
-    ],
-    "parserOptions": {
-        "ecmaVersion": "2018",
-        "sourceType": "module"
-    },
-    "plugins": ["import"],
-    "rules": {
-        "react/prop-types": "off",
-        "no-unused-vars": "off",
-        "no-console": "off",
-        "semi": ["error", "always"]
+  "env": {
+    // don't use commonJS variables, use import over require
+    "commonjs": false,
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "jest": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "eslint:recommended", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": "2018",
+    "sourceType": "module"
+  },
+  "plugins": ["import"],
+  "rules": {
+    "react/prop-types": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "semi": ["error", "always"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     }
+  }
 }
