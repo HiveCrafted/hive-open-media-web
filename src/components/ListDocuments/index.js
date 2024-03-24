@@ -42,13 +42,15 @@ const ListDocuments = ({ visible, onClose, documents = [], onSearch, signedInUse
     []
   );
 
+  console.log(`documents: ${JSON.stringify(documents)}`);
+
   return (
     <Drawer
       title="Select Google Drive Document"
       placement="right"
       closable
       onClose={onClose}
-      visible={visible}
+      open={visible}
       width={900}
     >
       <Row gutter={16}>
