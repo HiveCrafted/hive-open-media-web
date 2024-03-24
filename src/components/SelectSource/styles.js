@@ -4,13 +4,14 @@ const style = () => css`
   flex: 1;
   flex-direction: row;
   .custom-row {
-    height: 100vh;
+    height: 30vh;
     align-items: center;
     justify-content: center;
-    background-color: #dfdfdf;
+    color: #fff;
+    /* background-color: #dfdfdf; */
   }
   .source-container {
-    background-color: #fff;
+    /* background-color: #fff; */
     display: flex;
     flex: 1;
     padding: 20px;
