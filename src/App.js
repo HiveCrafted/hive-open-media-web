@@ -6,7 +6,7 @@ import SelectSource from './components/SelectSource';
 
 const logo = require('./assets/images/logo-1.png');
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">

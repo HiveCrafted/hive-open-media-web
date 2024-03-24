@@ -11,13 +11,16 @@ function GoogleSignIn() {
     });
 
     window.google?.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-      { theme: "outline", size: "large" }  // Customize the button
+      document.getElementById('signInDiv'),
+      {
+        theme: 'outline',
+        size: 'large'
+      }
     );
   }, []);
 
-  function handleCredentialResponse(response: any) {
-    console.log("Encoded JWT ID token: " + response.credential);
+  function handleCredentialResponse(response) {
+    console.log('Encoded JWT ID token: ' + response.credential);
     // Process the ID token or use it to get user information
   }
 

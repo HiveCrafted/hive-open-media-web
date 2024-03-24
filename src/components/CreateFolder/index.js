@@ -31,7 +31,7 @@ const CreateFolder = () => {
         await initializeClient();
         console.log('Proceeding to create folder');
         // Folder creation logic...
-      } catch (error: any) {
+      } catch (error) {
         console.error('Error in createFolder function:', error);
         setStatus(`Failure: ${error.message}`);
       }

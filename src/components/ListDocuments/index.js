@@ -1,32 +1,11 @@
 import React, { useCallback } from 'react';
-import { Button, Tooltip, Drawer, Row, Col, Input, Table } from 'antd';
-import debounce from 'lodash/debounce';
 import moment from 'moment';
+import { debounce } from 'lodash';
 
+import { Col, Drawer, Row, Button, Input, Table, Tooltip } from 'antd';
 const { Search } = Input;
 
-interface Document {
-  // Define the shape of your document here
-}
-
-interface Column {
-  title: string;
-  dataIndex: string;
-  key: string;
-  render?: (text: string) => JSX.Element;
-}
-
-interface ListDocumentsProps {
-  visible: boolean;
-  onClose: () => void;
-  documents: Document[];
-  onSearch: (query: string | null | undefined) => void; // Update the type of onSearch prop
-  signedInUser: any; // Replace 'any' with the actual type
-  onSignOut: () => void;
-  isLoading: boolean;
-}
-
-const columns: Column[] = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -51,16 +30,15 @@ const columns: Column[] = [
         </Tooltip>
       </span>
     ),
-  }
+  },
 ];
-
-const ListDocuments: React.FC<ListDocumentsProps> = ({ visible, onClose, documents = [], onSearch, signedInUser, onSignOut, isLoading }) => {
-  const search = (value: string) => {
+const ListDocuments = ({ visible, onClose, documents = [], onSearch, signedInUser, onSignOut, isLoading }) => {
+  const search = (value) => {
     delayedQuery(`name contains '${value}'`);
   };
 
   const delayedQuery = useCallback(
-    debounce((q: string) => onSearch(q), 500),
+    debounce((q) => onSearch(q), 500),
     []
   );
 
@@ -75,27 +53,25 @@ const ListDocuments: React.FC<ListDocumentsProps> = ({ visible, onClose, documen
     >
       <Row gutter={16}>
         <Col span={24}>
-          <div style={{ marginBottom: 20 }} className="table-search">
+          <div style={{ marginBottom: 20 }}>
             <p>Signed In as: {`${signedInUser?.Ad} (${signedInUser?.zu})`}</p>
             <Button type="primary" onClick={onSignOut}>
               Sign Out
             </Button>
-            <div className="table-search-input">
+          </div>
+
+          <div className="table-card-actions-container">
+            <div className="table-search-container">
               <Search
                 placeholder="Search Google Drive"
-                onChange={(e) => {
-                  search(e.target.value);
-                }}
-                onSearch={(value) => {
-                  search(value);
-                }}
+                onChange={(e) => search(e.target.value)}
+                onSearch={(value) => search(value)}
                 className="table-search-input"
                 size="large"
                 enterButton
               />
             </div>
           </div>
-
           <Table
             className="table-striped-rows"
             columns={columns}

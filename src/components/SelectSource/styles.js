@@ -1,4 +1,6 @@
-.container {
+import { css } from 'styled-components';
+
+const style = () => css`
   flex: 1;
   flex-direction: row;
   .custom-row {
@@ -39,4 +41,6 @@
       justify-content: center;
     }
   }
-}
+`;
+
+export { style };

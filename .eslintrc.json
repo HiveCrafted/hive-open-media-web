@@ -9,7 +9,6 @@
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
         "plugin:react/recommended",
         "eslint:recommended",
         "plugin:prettier/recommended"
@@ -21,7 +20,6 @@
     "plugins": ["import"],
     "rules": {
         "no-console": "error",
-        "semi": ["error", "always"],
-        "@typescript-eslint/semi": "off"
+        "semi": ["error", "always"]
     }
 }
