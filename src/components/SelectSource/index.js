@@ -104,7 +104,9 @@ const SelectSource = () => {
           // Handle the initial sign-in state.
           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         },
-        function (error) {}
+        function (error) {
+          console.error('Error initializing the API client: ', error);
+        }
       );
   };
 
@@ -112,9 +114,9 @@ const SelectSource = () => {
     gapi.load('client:auth2', initClient);
   };
 
-  const showDocuments = () => {
+  /* const showDocuments = () => {
     setListDocumentsVisibility(true);
-  };
+  }; */
 
   const onClose = () => {
     setListDocumentsVisibility(false);
@@ -142,7 +144,7 @@ const SelectSource = () => {
               </div>
               <div className="content-container">
                 <p className="title">Google Drive</p>
-                <span className="content">Import documents straight from your google drive</span>
+                <span className="content">Import documents straight from your Google Drive</span>
               </div>
             </div>
           </Spin>

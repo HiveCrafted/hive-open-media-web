@@ -9,14 +9,7 @@ function GoogleSignIn() {
       client_id: CLIENT_ID,
       callback: handleCredentialResponse,
     });
-
-    window.google?.accounts.id.renderButton(
-      document.getElementById('signInDiv'),
-      {
-        theme: 'outline',
-        size: 'large'
-      }
-    );
+    window.google?.accounts.id.renderButton(document.getElementById('signInDiv'), { theme: 'outline', size: 'large' });
   }, []);
 
   function handleCredentialResponse(response) {

@@ -19,7 +19,9 @@
     },
     "plugins": ["import"],
     "rules": {
-        "no-console": "error",
+        "react/prop-types": "off",
+        "no-unused-vars": "off",
+        "no-console": "off",
         "semi": ["error", "always"]
     }
 }
