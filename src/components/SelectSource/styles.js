@@ -7,11 +7,8 @@ const style = () => css`
     height: 30vh;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    /* background-color: #dfdfdf; */
   }
   .source-container {
-    /* background-color: #fff; */
     display: flex;
     flex: 1;
     padding: 20px;

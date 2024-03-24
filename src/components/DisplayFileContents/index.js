@@ -1,10 +1,7 @@
-import React, { useCallback } from 'react';
-import moment from 'moment';
-import { debounce } from 'lodash';
-
-import { Col, Drawer, Row, Button, Input, Table, Tooltip } from 'antd';
-import Link from 'antd/es/typography/Link';
-const { Search } = Input;
+import React from 'react';
+import { Col, Drawer, Row, Button, Table, Tooltip } from 'antd';
+import { Player } from 'video-react';
+import 'video-react/dist/video-react.css';
 
 const columns = [
   {
@@ -23,7 +20,7 @@ const columns = [
     dataIndex: 'Link',
     render: (link) => (
       <span>
-        <Tooltip title="View Video">
+        <Tooltip title="Download Video">
           <a href={link} target="_blank" rel="noreferrer">
             <Button
               type="primary"
@@ -33,40 +30,31 @@ const columns = [
               }}
               ghost
             >
-              Download
+              Link
             </Button>
           </a>
         </Tooltip>
       </span>
     ),
   },
+  {
+    title: 'Preview Video',
+    key: 'PreviewVideoLink',
+    dataIndex: 'Link',
+    render: (link) => (
+      <span>
+        <Tooltip title="Preview Video">
+          <Player src={link} muted={true} playsInline={true} preload="auto" />
+        </Tooltip>
+      </span>
+    ),
+  },
 ];
-const DisplayFileContents = ({ visible, onClose, documents = [], onSearch, isLoading }) => {
-  const search = (value) => {
-    delayedQuery(`name contains '${value}'`);
-  };
-
-  const delayedQuery = useCallback(
-    debounce((q) => onSearch(q), 500),
-    []
-  );
-
+const DisplayFileContents = ({ visible, onClose, documents = [], isLoading }) => {
   return (
     <Drawer title="View TikTok Videos" placement="right" closable={true} onClose={onClose} open={visible} width={900}>
       <Row gutter={16}>
         <Col span={24}>
-          <div className="table-card-actions-container">
-            <div className="table-search-container">
-              <Search
-                placeholder="Search TikTok Export"
-                onChange={(e) => search(e.target.value)}
-                onSearch={(value) => search(value)}
-                className="table-search-input"
-                size="large"
-                enterButton
-              />
-            </div>
-          </div>
           <Table
             className="table-striped-rows"
             columns={columns}
