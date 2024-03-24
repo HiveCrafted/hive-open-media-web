@@ -3,6 +3,7 @@ import './App.css';
 import GoogleSignIn from './components/GoogleSignIn';
 // import CreateFolder from './components/CreateFolder';
 import SelectSource from './components/SelectSource';
+import FileUpload from './components/FileUpload';
 
 const logo = require('./assets/images/logo-1.png');
 
@@ -16,6 +17,7 @@ const App = () => {
       <GoogleSignIn />
       {/* <CreateFolder /> */}
       <SelectSource />
+      <FileUpload />
     </div>
   );
 };
