@@ -1,7 +1,10 @@
 # Hive Open Media Web App
 
 ## Local Development Setup
+
 `npm i`
+or
+`npm i --force --legacy-peer-deps`
 
 `npm run build`
 
