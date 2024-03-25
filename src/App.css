@@ -1,11 +1,12 @@
 .App {
   text-align: center;
-  background-color: #282c34;
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 40px;
+  width: 48px;
   pointer-events: none;
+  padding: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -16,12 +17,7 @@
 }
 
 .App-header {
-  /* background-color: #282c34; */
-  /* min-height: 100vh; */
-  display: inline-flex;
-  /* flex-direction: column;
-  align-items: center;
-  justify-content: center; */
+  /* display: inline-flex; */
   font-size: calc(10px + 0.2vmin);
   color: white;
 }

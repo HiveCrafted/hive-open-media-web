@@ -21,3 +21,7 @@ http://localhost:3000/
 
 (Refresh the page if it's not showing Google Login)
 ```
+
+## Linting Auto-fix All Files
+
+`npx prettier --write .`
